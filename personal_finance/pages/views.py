@@ -4,11 +4,13 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.utils import timezone
-from budget.models import Budget
-
-from transactions.models import Transaction
-from categories.models import Category
 from django.db.models import Sum
+
+from budget.models import Budget
+from transactions.models import Transaction
+from transactions.forms import TransactionForm
+from categories.models import Category
+
 
 # Страница входа (теперь с логикой авторизации)
 def login_view(request):
@@ -34,14 +36,13 @@ def login_view(request):
 @login_required
 def dashboard_view(request):
 
-    # Добавление транзакции
+    # Обработка POST
     if request.method == 'POST':
 
-        # 1. Изменение бюджета
+        # 1.1. Изменение бюджета
         if 'budget' in request.POST:
             raw = request.POST.get('budget')
 
-            # Если поле пустое — ничего не меняем
             if raw:
                 budget, created = Budget.objects.get_or_create(user=request.user)
                 budget.monthly_limit = raw
@@ -49,46 +50,35 @@ def dashboard_view(request):
 
             return redirect('/dashboard/')
 
-        # 2. Добавление транзакции
-        if 'category' in request.POST:
-            category_id = request.POST.get('category')
-            amount = request.POST.get('amount')
-            date = request.POST.get('date')
-            description = request.POST.get('description')
-
-            Transaction.objects.create(
-                user=request.user,
-                category_id=category_id,
-                amount=amount,
-                date=date,
-                description=description
-            )
+        # 1.2. Добавление транзакции через ModelForm
+        form = TransactionForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
             return redirect('/dashboard/')
+
+    else:
+        form = TransactionForm()
 
     # Данные для отображения
     categories = Category.objects.all()
     transactions = Transaction.objects.filter(user=request.user)
-    
+
     # Фильтр периода
     start_date = request.GET.get('start')
     end_date = request.GET.get('end')
 
     period_filter = {}
-
     if start_date:
         period_filter['date__gte'] = start_date
-
     if end_date:
         period_filter['date__lte'] = end_date
 
     # Отчёт: расходы по категориям
     expense_report = (
         Transaction.objects
-        .filter(
-            user=request.user,
-            category__type='expense',
-            **period_filter
-        )
+        .filter(user=request.user, category__type='expense', **period_filter)
         .values('category__name')
         .annotate(total=Sum('amount'))
     )
@@ -96,31 +86,22 @@ def dashboard_view(request):
     # Отчёт: доходы по категориям
     income_report = (
         Transaction.objects
-        .filter(
-            user=request.user,
-            category__type='income',
-            **period_filter
-        )
+        .filter(user=request.user, category__type='income', **period_filter)
         .values('category__name')
         .annotate(total=Sum('amount'))
     )
 
-    
-    # Текущий месяц
+    # Бюджет
     today = timezone.now()
     month_start = today.replace(day=1)
 
-    # Расходы за текущий месяц
     monthly_expenses = (
         Transaction.objects
         .filter(user=request.user, date__gte=month_start, category__type='expense')
         .aggregate(total=Sum('amount'))['total'] or 0
     )
 
-    # Бюджет пользователя
     budget, created = Budget.objects.get_or_create(user=request.user)
-
-    # Остаток
     remaining = budget.monthly_limit - monthly_expenses
 
     return render(request, 'pages/dashboard.html', {
@@ -130,8 +111,10 @@ def dashboard_view(request):
         'income_report': income_report,
         'budget': budget,
         'monthly_expenses': monthly_expenses,
-        'remaining': remaining
+        'remaining': remaining,
+        'form': form,
     })
+
 
 # Регистрация нового пользователя
 def register_view(request):
@@ -158,6 +141,7 @@ def register_view(request):
 
     # GET-запрос → просто показываем форму
     return render(request, 'pages/register.html')
+
 
 # Удаление транзакции (только для владельца)
 @login_required
