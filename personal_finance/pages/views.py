@@ -39,9 +39,14 @@ def dashboard_view(request):
 
         # 1. Изменение бюджета
         if 'budget' in request.POST:
-            budget, created = Budget.objects.get_or_create(user=request.user)
-            budget.monthly_limit = request.POST.get('budget')
-            budget.save()
+            raw = request.POST.get('budget')
+
+            # Если поле пустое — ничего не меняем
+            if raw:
+                budget, created = Budget.objects.get_or_create(user=request.user)
+                budget.monthly_limit = raw
+                budget.save()
+
             return redirect('/dashboard/')
 
         # 2. Добавление транзакции
