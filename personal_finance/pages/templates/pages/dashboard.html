@@ -83,6 +83,19 @@
         </tr>
         {% endfor %}
     </table>
+
+    <h2>Фильтр по периоду</h2>
+
+    <form method="get" action="/dashboard/">
+        <label>С:</label>
+        <input type="date" name="start" value="{{ request.GET.start }}">
+
+        <label>По:</label>
+        <input type="date" name="end" value="{{ request.GET.end }}">
+
+        <button type="submit">Показать</button>
+    </form>
+
     <h2>Отчёт по расходам</h2>
 
     <table border="1">

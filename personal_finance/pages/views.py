@@ -63,15 +63,27 @@ def dashboard_view(request):
     # Данные для отображения
     categories = Category.objects.all()
     transactions = Transaction.objects.filter(user=request.user)
+    
+    # Фильтр периода
+    start_date = request.GET.get('start')
+    end_date = request.GET.get('end')
 
-    # Данные для отображения
-    categories = Category.objects.all()
-    transactions = Transaction.objects.filter(user=request.user)
+    period_filter = {}
+
+    if start_date:
+        period_filter['date__gte'] = start_date
+
+    if end_date:
+        period_filter['date__lte'] = end_date
 
     # Отчёт: расходы по категориям
     expense_report = (
         Transaction.objects
-        .filter(user=request.user, category__type='expense')
+        .filter(
+            user=request.user,
+            category__type='expense',
+            **period_filter
+        )
         .values('category__name')
         .annotate(total=Sum('amount'))
     )
@@ -79,10 +91,15 @@ def dashboard_view(request):
     # Отчёт: доходы по категориям
     income_report = (
         Transaction.objects
-        .filter(user=request.user, category__type='income')
+        .filter(
+            user=request.user,
+            category__type='income',
+            **period_filter
+        )
         .values('category__name')
         .annotate(total=Sum('amount'))
     )
+
     
     # Текущий месяц
     today = timezone.now()
