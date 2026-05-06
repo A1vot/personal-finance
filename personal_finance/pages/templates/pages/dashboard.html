@@ -9,6 +9,9 @@
 
     <p>Добро пожаловать!</p>
 
-    <a href="/">Выйти</a>
+    <form action="/logout/" method="post">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
 </body>
 </html>
