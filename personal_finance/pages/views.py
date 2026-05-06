@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 
 from transactions.models import Transaction
 from categories.models import Category
-
+from django.db.models import Sum
 
 # Страница входа (теперь с логикой авторизации)
 def login_view(request):
@@ -46,18 +46,39 @@ def dashboard_view(request):
             date=date,
             description=description
         )
-
+        
         return redirect('/dashboard/')
 
     # Данные для отображения
     categories = Category.objects.all()
     transactions = Transaction.objects.filter(user=request.user)
 
+    # Данные для отображения
+    categories = Category.objects.all()
+    transactions = Transaction.objects.filter(user=request.user)
+
+    # Отчёт: расходы по категориям
+    expense_report = (
+        Transaction.objects
+        .filter(user=request.user, category__type='expense')
+        .values('category__name')
+        .annotate(total=Sum('amount'))
+    )
+
+    # Отчёт: доходы по категориям
+    income_report = (
+        Transaction.objects
+        .filter(user=request.user, category__type='income')
+        .values('category__name')
+        .annotate(total=Sum('amount'))
+    )
+
     return render(request, 'pages/dashboard.html', {
         'categories': categories,
-        'transactions': transactions
+        'transactions': transactions,
+        'expense_report': expense_report,
+        'income_report': income_report
     })
-
 
 # Регистрация нового пользователя
 def register_view(request):

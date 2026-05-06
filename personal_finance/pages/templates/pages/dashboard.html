@@ -65,6 +65,37 @@
         </tr>
         {% endfor %}
     </table>
+    <h2>Отчёт по расходам</h2>
 
+    <table border="1">
+        <tr>
+            <th>Категория</th>
+            <th>Сумма</th>
+        </tr>
+
+        {% for item in expense_report %}
+        <tr>
+            <td>{{ item.category__name }}</td>
+            <td>{{ item.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Отчёт по доходам</h2>
+
+    <table border="1">
+        <tr>
+            <th>Категория</th>
+            <th>Сумма</th>
+        </tr>
+
+        {% for item in income_report %}
+        <tr>
+            <td>{{ item.category__name }}</td>
+            <td>{{ item.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
 </body>
 </html>
