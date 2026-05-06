@@ -5,3 +5,6 @@ def login_view(request):
 
 def dashboard_view(request):
     return render(request, 'pages/dashboard.html')
+
+def register_view(request):
+    return render(request, 'pages/register.html')
