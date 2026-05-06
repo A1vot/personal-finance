@@ -47,6 +47,7 @@
             <th>Категория</th>
             <th>Сумма</th>
             <th>Описание</th>
+            <th></th> <!-- колонка под кнопку -->
         </tr>
 
         {% for t in transactions %}
@@ -55,6 +56,12 @@
             <td>{{ t.category.name }}</td>
             <td>{{ t.amount }}</td>
             <td>{{ t.description }}</td>
+            <td>
+                <form action="/transactions/delete/{{ t.id }}/" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </table>

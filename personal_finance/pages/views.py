@@ -84,3 +84,9 @@ def register_view(request):
 
     # GET-запрос → просто показываем форму
     return render(request, 'pages/register.html')
+
+# Удаление транзакции (только для владельца)
+@login_required
+def delete_transaction_view(request, transaction_id):
+    Transaction.objects.filter(id=transaction_id, user=request.user).delete()
+    return redirect('/dashboard/')
