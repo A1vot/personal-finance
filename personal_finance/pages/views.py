@@ -4,6 +4,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 
+from transactions.models import Transaction
+from categories.models import Category
+
 
 # Страница входа (теперь с логикой авторизации)
 def login_view(request):
@@ -28,7 +31,32 @@ def login_view(request):
 # Личный кабинет (доступен только авторизованным)
 @login_required
 def dashboard_view(request):
-    return render(request, 'pages/dashboard.html')
+
+    # Добавление транзакции
+    if request.method == 'POST':
+        category_id = request.POST.get('category')
+        amount = request.POST.get('amount')
+        date = request.POST.get('date')
+        description = request.POST.get('description')
+
+        Transaction.objects.create(
+            user=request.user,
+            category_id=category_id,
+            amount=amount,
+            date=date,
+            description=description
+        )
+
+        return redirect('/dashboard/')
+
+    # Данные для отображения
+    categories = Category.objects.all()
+    transactions = Transaction.objects.filter(user=request.user)
+
+    return render(request, 'pages/dashboard.html', {
+        'categories': categories,
+        'transactions': transactions
+    })
 
 
 # Регистрация нового пользователя

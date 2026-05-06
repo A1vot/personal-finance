@@ -9,9 +9,55 @@
 
     <p>Добро пожаловать!</p>
 
+    <h2>Добавить транзакцию</h2>
+
+    <form action="/dashboard/" method="post">
+        {% csrf_token %}
+
+        <label>Категория:</label>
+        <select name="category">
+            {% for cat in categories %}
+                <option value="{{ cat.id }}">{{ cat.name }} ({{ cat.get_type_display }})</option>
+            {% endfor %}
+        </select>
+
+        <label>Сумма:</label>
+        <input type="number" step="0.01" name="amount" required>
+
+        <label>Дата:</label>
+        <input type="date" name="date" required>
+
+        <label>Описание:</label>
+        <input type="text" name="description">
+
+        <button type="submit">Добавить</button>
+    </form>
+
+
     <form action="/logout/" method="post">
         {% csrf_token %}
         <button type="submit">Выйти</button>
     </form>
+
+    <h2>Ваши транзакции</h2>
+
+    <table border="1">
+        <tr>
+            <th>Дата</th>
+            <th>Категория</th>
+            <th>Сумма</th>
+            <th>Описание</th>
+        </tr>
+
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t.date }}</td>
+            <td>{{ t.category.name }}</td>
+            <td>{{ t.amount }}</td>
+            <td>{{ t.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </body>
 </html>

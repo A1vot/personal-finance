@@ -1,7 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 from categories.models import Category
 
 class Transaction(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name='Пользователь'
+    )
     category = models.ForeignKey(
         Category,
         on_delete=models.PROTECT,
