@@ -1,131 +1,183 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Личный кабинет</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-  <h1>Личный кабинет</h1>
-  <p>Добро пожаловать, {{ request.user.username }}!</p>
+{% block title %}Личный кабинет{% endblock %}
 
-  <!-- БЮДЖЕТ -->
-  <h2>Бюджет</h2>
+{% block header %}{% endblock %}
 
-  <p>Лимит на месяц: {{ budget.monthly_limit }} ₽</p>
-  <p>Потрачено за месяц: {{ monthly_expenses }} ₽</p>
-  <p>Осталось: {{ remaining }} ₽</p>
+{% block content %}
 
-  {% if remaining < 0 %}
-    <p style="color:red;">Вы превысили бюджет!</p>
-  {% endif %}
+<body class="bg-light">
 
-  <form action="/dashboard/" method="post">
-    {% csrf_token %}
-    <label>{{ form_budget.monthly_limit.label }}</label>
-    {{ form_budget.monthly_limit }}
-    <button type="submit">Сохранить</button>
-  </form>
+  <div class="container py-4">
 
-  <!-- ДОБАВЛЕНИЕ ТРАНЗАКЦИИ -->
-  <h2>Добавить транзакцию</h2>
+    <h1 class="mb-3">Личный кабинет</h1>
+    <p class="text-muted">Добро пожаловать, {{ request.user.username }}!</p>
 
-  <form action="/dashboard/" method="post">
-    {% csrf_token %}
-    <label>{{ form.category.label }}</label>
-    {{ form.category }}
+    <!-- БЮДЖЕТ -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4 class="card-title">Бюджет</h4>
 
-    <label>{{ form.amount.label }}</label>
-    {{ form.amount }}
+        <p>Лимит на месяц: <strong>{{ budget.monthly_limit }} ₽</strong></p>
+        <p>Потрачено за месяц: <strong>{{ monthly_expenses }} ₽</strong></p>
+        <p>
+          Осталось:
+          <strong class="{% if remaining < 0 %}text-danger{% else %}text-success{% endif %}">
+            {{ remaining }} ₽
+          </strong>
+        </p>
 
-    <label>{{ form.date.label }}</label>
-    {{ form.date }}
+        <form action="/dashboard/" method="post" class="row g-3 mt-3">
+          {% csrf_token %}
+          <div class="col-auto">
+            {{ form_budget.monthly_limit }}
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary" type="submit">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-    <label>{{ form.description.label }}</label>
-    {{ form.description }}
+    <!-- ДОБАВЛЕНИЕ ТРАНЗАКЦИИ -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4 class="card-title">Добавить транзакцию</h4>
 
-    <button type="submit">Добавить</button>
-  </form>
+        <form action="/dashboard/" method="post" class="row g-3">
+          {% csrf_token %}
 
-  <!-- ВЫХОД -->
-  <form action="/logout/" method="post">
-    {% csrf_token %}
-    <button type="submit">Выйти</button>
-  </form>
+          <div class="col-md-3">
+            {{ form.category.label_tag }}
+            {{ form.category }}
+          </div>
 
-  <!-- ТРАНЗАКЦИИ -->
-  <h2>Ваши транзакции</h2>
+          <div class="col-md-3">
+            {{ form.amount.label_tag }}
+            {{ form.amount }}
+          </div>
 
-  <table border="1">
-    <tr>
-      <th>Дата</th>
-      <th>Категория</th>
-      <th>Сумма</th>
-      <th>Описание</th>
-      <th></th>
-    </tr>
+          <div class="col-md-3">
+            {{ form.date.label_tag }}
+            {{ form.date }}
+          </div>
 
-      {% for t in transactions %}
-      <tr>
-        <td>{{ t.date }}</td>
-        <td>{{ t.category.name }}</td>
-        <td>{{ t.amount }}</td>
-        <td>{{ t.description }}</td>
-        <td>
-          <form action="/transactions/delete/{{ t.id }}/" method="post" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit">Удалить</button>
-          </form>
-        </td>
-      </tr>
-      {% endfor %}
-  </table>
+          <div class="col-md-3">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+          </div>
 
-  <!-- ФИЛЬТР -->
-  <h2>Фильтр по периоду</h2>
+          <div class="col-12">
+            <button class="btn btn-success" type="submit">Добавить</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-  <form method="get" action="/dashboard/">
-    <label>С:</label>
-    <input type="date" name="start" value="{{ request.GET.start }}">
+    <!-- ТРАНЗАКЦИИ -->
+    <h3 class="mt-4">Ваши транзакции</h3>
 
-    <label>По:</label>
-    <input type="date" name="end" value="{{ request.GET.end }}">
+    <div class="table-responsive mb-4">
+      <table class="table table-bordered">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th>Дата</th>
+            <th>Категория</th>
+            <th>Сумма</th>
+            <th>Описание</th>
+            <th></th>
+          </tr>
+        </thead>
 
-    <button type="submit">Показать</button>
-  </form>
+        <tbody>
+          {% for t in transactions %}
+          <tr>
+            <td>{{ t.date }}</td>
+            <td>{{ t.category.name }}</td>
+            <td>{{ t.amount }}</td>
+            <td>{{ t.description }}</td>
+            <td>
+              <form action="/transactions/delete/{{ t.id }}/" method="post">
+                {% csrf_token %}
+                <button class="btn btn-sm btn-danger" type="submit">Удалить</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
-  <!-- ОТЧЁТЫ -->
-  <h2>Отчёт по расходам</h2>
+    <!-- ФИЛЬТР -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4 class="card-title">Фильтр по периоду</h4>
 
-  <table border="1">
-    <tr>
-      <th>Категория</th>
-      <th>Сумма</th>
-    </tr>
+        <form method="get" action="/dashboard/" class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">С:</label>
+            <input type="date" name="start" value="{{ request.GET.start }}" class="form-control">
+          </div>
 
-    {% for item in expense_report %}
-    <tr>
-      <td>{{ item.category__name }}</td>
-      <td>{{ item.total }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+          <div class="col-md-4">
+            <label class="form-label">По:</label>
+            <input type="date" name="end" value="{{ request.GET.end }}" class="form-control">
+          </div>
 
-  <h2>Отчёт по доходам</h2>
+          <div class="col-md-4 d-flex align-items-end">
+            <button class="btn btn-primary w-100" type="submit">Показать</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-  <table border="1">
-    <tr>
-      <th>Категория</th>
-      <th>Сумма</th>
-    </tr>
+    <!-- ОТЧЁТЫ -->
+    <h3 class="mt-4">Отчёты</h3>
 
-    {% for item in income_report %}
-    <tr>
-      <td>{{ item.category__name }}</td>
-      <td>{{ item.total }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Расходы</h5>
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th>Категория</th>
+              <th>Сумма</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in expense_report %}
+            <tr>
+              <td>{{ item.category__name }}</td>
+              <td>{{ item.total }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        <h5>Доходы</h5>
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th>Категория</th>
+              <th>Сумма</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in income_report %}
+            <tr>
+              <td>{{ item.category__name }}</td>
+              <td>{{ item.total }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
 
 </body>
+{% endblock %}
 </html>
