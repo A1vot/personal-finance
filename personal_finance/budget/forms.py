@@ -11,6 +11,7 @@ class BudgetForm(forms.ModelForm):
         widgets = {
             "monthly_limit": forms.NumberInput(
                 attrs={
+                    "class": "form-control",
                     "step": "0.01",
                     "placeholder": "Введите месячный лимит",
                 }
