@@ -8,8 +8,11 @@ from django.db.models import Sum
 
 from budget.models import Budget
 from transactions.models import Transaction
-from transactions.forms import TransactionForm
 from categories.models import Category
+
+from transactions.forms import TransactionForm
+from budget.forms import BudgetForm
+
 
 
 # Страница входа (теперь с логикой авторизации)
@@ -36,21 +39,20 @@ def login_view(request):
 @login_required
 def dashboard_view(request):
 
-    # Обработка POST
+    # Получаем или создаём бюджет пользователя
+    budget, created = Budget.objects.get_or_create(user=request.user)
+
+    # --- POST ---
     if request.method == 'POST':
 
-        # 1.1. Изменение бюджета
-        if 'budget' in request.POST:
-            raw = request.POST.get('budget')
-
-            if raw:
-                budget, created = Budget.objects.get_or_create(user=request.user)
-                budget.monthly_limit = raw
-                budget.save()
-
+        # 1) Обновление бюджета через ModelForm
+        if 'monthly_limit' in request.POST:
+            form_budget = BudgetForm(request.POST, instance=budget)
+            if form_budget.is_valid():
+                form_budget.save()
             return redirect('/dashboard/')
 
-        # 1.2. Добавление транзакции через ModelForm
+        # 2) Добавление транзакции через ModelForm
         form = TransactionForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
@@ -60,8 +62,9 @@ def dashboard_view(request):
 
     else:
         form = TransactionForm()
+        form_budget = BudgetForm(instance=budget)
 
-    # Данные для отображения
+    # --- Данные для отображения ---
     categories = Category.objects.all()
     transactions = Transaction.objects.filter(user=request.user)
 
@@ -75,7 +78,7 @@ def dashboard_view(request):
     if end_date:
         period_filter['date__lte'] = end_date
 
-    # Отчёт: расходы по категориям
+    # Отчёты
     expense_report = (
         Transaction.objects
         .filter(user=request.user, category__type='expense', **period_filter)
@@ -83,7 +86,6 @@ def dashboard_view(request):
         .annotate(total=Sum('amount'))
     )
 
-    # Отчёт: доходы по категориям
     income_report = (
         Transaction.objects
         .filter(user=request.user, category__type='income', **period_filter)
@@ -91,7 +93,7 @@ def dashboard_view(request):
         .annotate(total=Sum('amount'))
     )
 
-    # Бюджет
+    # Бюджет: расчёт остатка
     today = timezone.now()
     month_start = today.replace(day=1)
 
@@ -101,7 +103,6 @@ def dashboard_view(request):
         .aggregate(total=Sum('amount'))['total'] or 0
     )
 
-    budget, created = Budget.objects.get_or_create(user=request.user)
     remaining = budget.monthly_limit - monthly_expenses
 
     return render(request, 'pages/dashboard.html', {
@@ -113,7 +114,9 @@ def dashboard_view(request):
         'monthly_expenses': monthly_expenses,
         'remaining': remaining,
         'form': form,
+        'form_budget': form_budget,
     })
+
 
 
 # Регистрация нового пользователя

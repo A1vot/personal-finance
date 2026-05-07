@@ -22,26 +22,25 @@
     <form action="/dashboard/" method="post">
         {% csrf_token %}
         <label>Установить месячный бюджет:</label>
-        <input type="number" step="0.01" name="budget" value="{{ budget.monthly_limit }}">
+        <label>{{ form_budget.monthly_limit.label }}</label>
+        {{ form_budget.monthly_limit }}
+
         <button type="submit">Сохранить</button>
     </form>
 
 
     <h2>Добавить транзакцию</h2>
     <form action="/dashboard/" method="post">
-        {% csrf_token %}
-        <label>{{ form.category.label }}</label>
-        {{ form.category }}
-
-        <label>{{ form.amount.label }}</label>
-        {{ form.amount }}
-
-        <label>{{ form.date.label }}</label>
-        {{ form.date }}
-
-        <label>{{ form.description.label }}</label>
-        {{ form.description }}
-        <button type="submit">Добавить</button>
+      {% csrf_token %}
+      <label>{{ form.category.label }}</label>
+      {{ form.category }}
+      <label>{{ form.amount.label }}</label>
+      {{ form.amount }}
+      <label>{{ form.date.label }}</label>
+      {{ form.date }}
+      <label>{{ form.description.label }}</label>
+      {{ form.description }}
+      <button type="submit">Добавить</button>
     </form>
 
 
