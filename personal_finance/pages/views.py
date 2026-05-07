@@ -66,7 +66,6 @@ def dashboard_view(request):
 
     # --- Данные для отображения ---
     categories = Category.objects.all()
-    transactions = Transaction.objects.filter(user=request.user)
 
     # Фильтр периода
     start_date = request.GET.get('start')
@@ -77,6 +76,8 @@ def dashboard_view(request):
         period_filter['date__gte'] = start_date
     if end_date:
         period_filter['date__lte'] = end_date
+
+    transactions = Transaction.objects.filter(user=request.user, **period_filter)
 
     # Отчёты
     expense_report = (
