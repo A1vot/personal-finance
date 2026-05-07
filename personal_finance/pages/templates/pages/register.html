@@ -1,37 +1,54 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Регистрация</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-  <h1>Регистрация</h1>
+{% block title %}Регистрация{% endblock %}
 
-  {% if messages %}
-    {% for message in messages %}
-        <p style="color:red;">{{ message }}</p>
-    {% endfor %}
-  {% endif %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-4">
 
-  <form method="post">
-    {% csrf_token %}
+    <h2 class="text-center mb-4">Регистрация</h2>
 
-    <label>Логин:</label>
-    <input type="text" name="username">
+    {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-danger">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
 
-    <label>Пароль:</label>
-    <input type="password" name="password">
+    <form method="post" class="card p-4 shadow-sm">
+      {% csrf_token %}
 
-    <label>Повторите пароль:</label>
-    <input type="password" name="password2">
+      <div class="mb-3">
+        <label class="form-label">Логин</label>
+        <input type="text" name="username" class="form-control" required>
+      </div>
 
-    <button type="submit">Создать аккаунт</button>
-  </form>
+      <div class="mb-3">
+        <label class="form-label">Пароль</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
 
-  <br>
+      <div class="mb-3">
+        <label class="form-label">Повторите пароль</label>
+        <input type="password" name="password2" class="form-control" required>
+      </div>
 
-  <a href="/">Уже есть аккаунт</a>
+      <button type="submit" class="btn w-100" style="background:#333; color:#fff;">Войти</button>
 
-</body>
-</html>
+      <div class="text-center mt-3">
+        <a href="/" 
+          style="
+              color:#333; 
+              text-decoration:none; 
+              transition:0.2s;
+          "
+          onmouseover="this.style.color='#000'"
+          onmouseout="this.style.color='#333'">
+            Уже есть аккаунт?
+        </a>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

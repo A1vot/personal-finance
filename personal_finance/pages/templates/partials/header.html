@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/">Финансы</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/dashboard/">Дашборд</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/transactions/">Транзакции</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/categories/">Категории</a></li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span class="navbar-text me-3">Привет, {{ user.username }}</span>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/logout/">Выйти</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>

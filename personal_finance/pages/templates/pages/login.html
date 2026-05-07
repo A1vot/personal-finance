@@ -1,34 +1,50 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Вход</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-  <h1>Вход</h1>
+{% block title %}Вход{% endblock %}
 
-  {% if messages %}
-    {% for message in messages %}
-        <p style="color:red;">{{ message }}</p>
-    {% endfor %}
-  {% endif %}
+{% block header %}{% endblock %}
 
-  <form method="post">
-    {% csrf_token %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-4">
 
-    <label>Логин:</label>
-    <input type="text" name="username">
+    <h2 class="text-center mb-4">Вход</h2>
 
-    <label>Пароль:</label>
-    <input type="password" name="password">
+    {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-danger">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
 
-    <button type="submit">Войти</button>
-  </form>
+    <form method="post" class="card p-4 shadow-sm">
+      {% csrf_token %}
 
-  <br>
+      <div class="mb-3">
+        <label class="form-label">Логин</label>
+        <input type="text" name="username" class="form-control" required>
+      </div>
 
-  <a href="/register/">Зарегистрироваться</a>
+      <div class="mb-3">
+        <label class="form-label">Пароль</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
 
-</body>
-</html>
+      <button type="submit" class="btn w-100" style="background:#333; color:#fff;">Войти</button>
+
+      <div class="text-center mt-3">
+        <a href="/" 
+          style="
+              color:#333; 
+              text-decoration:none; 
+              transition:0.2s;
+          "
+          onmouseover="this.style.color='#000'"
+          onmouseout="this.style.color='#333'">
+            Зарегестрироваться
+        </a>
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
