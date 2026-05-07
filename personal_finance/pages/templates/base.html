@@ -38,5 +38,38 @@
 
   {% include "partials/footer.html" %}
 
+  <!-- Модальное окно справки -->
+  <div class="modal fade" id="helpModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-dark">
+        
+        <div class="modal-header">
+          <h5 class="modal-title">Справка</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="mb-2">
+            Это приложение для управления личными финансами.
+          </p>
+          <p class="mb-2">
+            Вы можете отслеживать расходы, управлять бюджетом и анализировать свои транзакции.
+          </p>
+          <p class="mb-0">
+            Для доступа к полному функционалу необходимо авторизоваться.
+          </p>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-dark" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

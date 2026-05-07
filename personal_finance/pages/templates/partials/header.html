@@ -24,7 +24,6 @@
                 Личный кабинет: {{ user.username }}
             </span>
 
-
           </li>
           <li class="nav-item">
             <form action="/logout/" method="post" class="d-inline">
@@ -36,7 +35,19 @@
           </li>
         </ul>
       {% endif %}
-    </div>
 
+      {% if not user.is_authenticated %}
+        <ul class="navbar-nav ms-auto d-flex align-items-center">
+
+          <li class="nav-item">
+            <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#helpModal">
+              Справка
+            </button>
+          </li>
+
+        </ul>
+        {% endif %}
+
+    </div>
   </div>
 </nav>
