@@ -11,8 +11,7 @@
   <div class="container py-4">
 
     <h1 class="mb-3">Личный кабинет</h1>
-    <p class="text-muted">Добро пожаловать, {{ request.user.username }}!</p>
-
+    
     <!-- БЮДЖЕТ -->
     <div class="card mb-4">
       <div class="card-body">
@@ -95,7 +94,9 @@
             <td>{{ t.date }}</td>
             <td>{{ t.category.name }}</td>
             <td>{{ t.amount }}</td>
-            <td>{{ t.description }}</td>
+            <td class="desc-col" title="{{ t.description }}">
+              {{ t.description|truncatechars:40 }}
+            </td>
             <td>
               <form action="/transactions/delete/{{ t.id }}/" method="post">
                 {% csrf_token %}
