@@ -16,16 +16,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!--- Навигация для авторизованных -->
     <div class="collapse navbar-collapse" id="navbarNav">
       {% if user.is_authenticated %}
         <ul class="navbar-nav ms-auto d-flex align-items-center">
+
           <li class="nav-item">
             <span class="navbar-brand mb-0 h1 me-4" style="font-weight:375; position:relative; top:1px;">
                 Личный кабинет: {{ user.username }}
             </span>
-
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item me-4">
             <form action="/logout/" method="post" class="d-inline">
               {% csrf_token %}
               <button type="submit" class="navbar-brand btn p-0 m-0" style="border:none;">
@@ -33,9 +35,17 @@
               </button>
             </form>
           </li>
+
+          <li class="nav-item">
+            <a class="navbar-brand" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#helpUserModal">
+              Помощь
+            </a>
+          </li>
+
         </ul>
       {% endif %}
 
+      <!--- Навигация для неавторизованных -->
       {% if not user.is_authenticated %}
         <ul class="navbar-nav ms-auto d-flex align-items-center">
 
@@ -46,7 +56,7 @@
           </li>
 
         </ul>
-        {% endif %}
+      {% endif %}
 
     </div>
   </div>
