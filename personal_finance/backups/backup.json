@@ -1,0 +1,1334 @@
+[
+{
+  "model": "categories.category",
+  "pk": 1,
+  "fields": {
+    "name": "Продукты",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 2,
+  "fields": {
+    "name": "ЖКХ",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 3,
+  "fields": {
+    "name": "Транспорт",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 4,
+  "fields": {
+    "name": "Одежда",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 5,
+  "fields": {
+    "name": "Здоровье",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 6,
+  "fields": {
+    "name": "Связь",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 7,
+  "fields": {
+    "name": "Коммунальные услуги",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 8,
+  "fields": {
+    "name": "Развлечения",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 9,
+  "fields": {
+    "name": "Образование",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 10,
+  "fields": {
+    "name": "Дом и быт",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 11,
+  "fields": {
+    "name": "Красота и уход",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 12,
+  "fields": {
+    "name": "Питомцы",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 13,
+  "fields": {
+    "name": "Подарки",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 14,
+  "fields": {
+    "name": "Подписки",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 15,
+  "fields": {
+    "name": "Кафе и рестораны",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 16,
+  "fields": {
+    "name": "Спорт",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 17,
+  "fields": {
+    "name": "Путешествия",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 18,
+  "fields": {
+    "name": "Автомобиль",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 19,
+  "fields": {
+    "name": "Ремонт",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 20,
+  "fields": {
+    "name": "Прочее",
+    "type": "expense"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 21,
+  "fields": {
+    "name": "Зарплата",
+    "type": "income"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 22,
+  "fields": {
+    "name": "Премия",
+    "type": "income"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 23,
+  "fields": {
+    "name": "Подарок",
+    "type": "income"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 24,
+  "fields": {
+    "name": "Инвестиции",
+    "type": "income"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 25,
+  "fields": {
+    "name": "Подработка",
+    "type": "income"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 26,
+  "fields": {
+    "name": "Проценты по вкладам",
+    "type": "income"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "categories",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "transactions",
+    "model": "transaction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "budget",
+    "model": "budget"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "b2o64jqn2wo8k72ctm1i5rtquuv715uw",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgLXRcuvcMZIaZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uzsur0uxGmh5Qd8B3LrepUy7rMpHdFH7Tpa2V5Xg737yBjy98acbSdo14CSAfBCoCHXmDwiSTYaULuyCA6m4CJwQ3sR8DEZBjZBPX-APGVOMw:1wL8sG:VWjoEtbU7GNj3-aO_BWO9oqnpgr7zKLkIElrG8sx_qU",
+    "expire_date": "2026-05-22T00:15:24.780Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Категория",
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Категория",
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Категория",
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Категория",
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Транзакция",
+    "content_type": [
+      "transactions",
+      "transaction"
+    ],
+    "codename": "add_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Транзакция",
+    "content_type": [
+      "transactions",
+      "transaction"
+    ],
+    "codename": "change_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Транзакция",
+    "content_type": [
+      "transactions",
+      "transaction"
+    ],
+    "codename": "delete_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Транзакция",
+    "content_type": [
+      "transactions",
+      "transaction"
+    ],
+    "codename": "view_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add budget",
+    "content_type": [
+      "budget",
+      "budget"
+    ],
+    "codename": "add_budget"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change budget",
+    "content_type": [
+      "budget",
+      "budget"
+    ],
+    "codename": "change_budget"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete budget",
+    "content_type": [
+      "budget",
+      "budget"
+    ],
+    "codename": "delete_budget"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view budget",
+    "content_type": [
+      "budget",
+      "budget"
+    ],
+    "codename": "view_budget"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$PVjKel0ctMff2SdGyJagmL$iCsDkbi1wzVu0m8jnXOMou5sG7R+2LEdOOHWfK8oj7I=",
+    "last_login": "2026-05-08T00:15:24.573Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-06T03:28:18.835Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-05-06T04:08:14.435Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "Продукты (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-05-06T04:08:47.230Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "ЖКХ (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-05-06T04:08:56.749Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "Транспорт (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-05-06T04:09:05.097Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "Одежда (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-05-06T04:09:11.501Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "Здоровье (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-05-06T04:09:20.666Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "6",
+    "object_repr": "Связь (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-05-06T04:09:28.190Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "7",
+    "object_repr": "Коммунальные услуги (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-05-06T04:09:36.051Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "8",
+    "object_repr": "Развлечения (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-05-06T04:09:42.205Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "9",
+    "object_repr": "Образование (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-05-06T04:09:50.789Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "10",
+    "object_repr": "Дом и быт (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-05-06T04:09:57.867Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "11",
+    "object_repr": "Красота и уход (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-05-06T04:10:05.799Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "12",
+    "object_repr": "Питомцы (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-05-06T04:10:11.971Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "13",
+    "object_repr": "Подарки (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-05-06T04:10:19.101Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "14",
+    "object_repr": "Подписки (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-05-06T04:10:26.553Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "15",
+    "object_repr": "Кафе и рестораны (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-05-06T04:10:33.241Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "16",
+    "object_repr": "Спорт (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-05-06T04:10:40.213Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "17",
+    "object_repr": "Путешествия (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-05-06T04:10:45.353Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "18",
+    "object_repr": "Автомобиль (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-05-06T04:10:54.943Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "19",
+    "object_repr": "Ремонт (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-05-06T04:11:06.994Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "20",
+    "object_repr": "Прочее (Расход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-05-06T04:11:15.026Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "21",
+    "object_repr": "Зарплата (Доход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-05-06T04:11:21.827Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "22",
+    "object_repr": "Премия (Доход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-05-06T04:12:34.186Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "23",
+    "object_repr": "Подарок (Доход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-05-06T04:12:41.643Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "24",
+    "object_repr": "Инвестиции (Доход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-05-06T04:12:48.024Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "25",
+    "object_repr": "Подработка (Доход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-05-06T04:12:55.656Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "categories",
+      "category"
+    ],
+    "object_id": "26",
+    "object_repr": "Проценты по вкладам (Доход)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-05-06T04:26:38.025Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "transactions",
+      "transaction"
+    ],
+    "object_id": "1",
+    "object_repr": "Автомобиль: 777 от 2026-05-06",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-05-06T09:15:50.523Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "transactions",
+      "transaction"
+    ],
+    "object_id": "1",
+    "object_repr": "Автомобиль: 777.00 от 2026-05-06",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-05-08T00:14:57.475Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "Anton",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-05-08T00:14:57.475Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "NoName",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-05-08T00:14:57.475Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "4",
+    "object_repr": "asdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-05-08T00:14:57.475Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "аыквып",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-05-08T00:14:57.475Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "5",
+    "object_repr": "вуаыуа",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-05-08T00:14:57.475Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "8",
+    "object_repr": "пвпвк",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-05-08T00:14:57.475Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "7",
+    "object_repr": "уцкцуц",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "budget.budget",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "monthly_limit": "0.00"
+  }
+}
+]
